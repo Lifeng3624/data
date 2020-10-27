@@ -1,0 +1,4675 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="http://giswqs.github.io/geemap/utils/">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>utils module - geemap</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab28b872.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#utilities-module" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="http://giswqs.github.io/geemap" title="geemap" class="md-header-nav__button md-logo" aria-label="geemap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            geemap
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              utils module
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/giswqs/geemap/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="http://giswqs.github.io/geemap" title="geemap" class="md-nav__button md-logo" aria-label="geemap">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    geemap
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/giswqs/geemap/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../installation/" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../get-started/" class="md-nav__link">
+      Get Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../usage/" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tutorials/" class="md-nav__link">
+      Tutorials
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" class="md-nav__link">
+      Contributing
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../citations/" class="md-nav__link">
+      Citations
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://blog.gishub.org" class="md-nav__link">
+      Blog
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://www.youtube.com/c/QiushengWu" class="md-nav__link">
+      YouTube Channel
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/giswqs/geemap/issues" class="md-nav__link">
+      Report Issues
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
+    
+    <label class="md-nav__link" for="nav-12">
+      API Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="API Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        <span class="md-nav__icon md-icon"></span>
+        API Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../basemaps/" class="md-nav__link">
+      basemaps module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cartoee/" class="md-nav__link">
+      cartoee module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../conversion/" class="md-nav__link">
+      conversion module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eefolium/" class="md-nav__link">
+      eefolium module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../geemap/" class="md-nav__link">
+      geemap module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../legends/" class="md-nav__link">
+      legends module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ml/" class="md-nav__link">
+      ml module
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        utils module
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      utils module
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils" class="md-nav__link">
+    geemap.utils
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.annual_NAIP" class="md-nav__link">
+    annual_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.array_mean" class="md-nav__link">
+    array_mean()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.array_sum" class="md-nav__link">
+    array_sum()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.bands_to_image_collection" class="md-nav__link">
+    bands_to_image_collection()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.column_stats" class="md-nav__link">
+    column_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.dict_to_csv" class="md-nav__link">
+    dict_to_csv()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.ee_initialize" class="md-nav__link">
+    ee_initialize()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.ee_num_round" class="md-nav__link">
+    ee_num_round()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.extract_values_to_points" class="md-nav__link">
+    extract_values_to_points()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_HUC08" class="md-nav__link">
+    filter_HUC08()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_HUC10" class="md-nav__link">
+    filter_HUC10()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_NWI" class="md-nav__link">
+    filter_NWI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_HUC08" class="md-nav__link">
+    find_HUC08()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_HUC10" class="md-nav__link">
+    find_HUC10()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_landsat_by_path_row" class="md-nav__link">
+    find_landsat_by_path_row()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_NAIP" class="md-nav__link">
+    find_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_NWI" class="md-nav__link">
+    find_NWI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.get_all_NAIP" class="md-nav__link">
+    get_all_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.get_annual_NAIP" class="md-nav__link">
+    get_annual_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_area" class="md-nav__link">
+    image_area()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_band_names" class="md-nav__link">
+    image_band_names()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_cell_size" class="md-nav__link">
+    image_cell_size()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_date" class="md-nav__link">
+    image_date()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_max_value" class="md-nav__link">
+    image_max_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_mean_value" class="md-nav__link">
+    image_mean_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_min_value" class="md-nav__link">
+    image_min_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_reclassify" class="md-nav__link">
+    image_reclassify()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_scale" class="md-nav__link">
+    image_scale()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_smoothing" class="md-nav__link">
+    image_smoothing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_std_value" class="md-nav__link">
+    image_std_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_sum_value" class="md-nav__link">
+    image_sum_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.num_round" class="md-nav__link">
+    num_round()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.nwi_add_color" class="md-nav__link">
+    nwi_add_color()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.remove_geometry" class="md-nav__link">
+    remove_geometry()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.rename_bands" class="md-nav__link">
+    rename_bands()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.str_to_num" class="md-nav__link">
+    str_to_num()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.summarize_by_group" class="md-nav__link">
+    summarize_by_group()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.summary_stats" class="md-nav__link">
+    summary_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area" class="md-nav__link">
+    vec_area()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_ha" class="md-nav__link">
+    vec_area_ha()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_km2" class="md-nav__link">
+    vec_area_km2()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_mi2" class="md-nav__link">
+    vec_area_mi2()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils" class="md-nav__link">
+    geemap.utils
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.annual_NAIP" class="md-nav__link">
+    annual_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.array_mean" class="md-nav__link">
+    array_mean()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.array_sum" class="md-nav__link">
+    array_sum()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.bands_to_image_collection" class="md-nav__link">
+    bands_to_image_collection()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.column_stats" class="md-nav__link">
+    column_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.dict_to_csv" class="md-nav__link">
+    dict_to_csv()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.ee_initialize" class="md-nav__link">
+    ee_initialize()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.ee_num_round" class="md-nav__link">
+    ee_num_round()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.extract_values_to_points" class="md-nav__link">
+    extract_values_to_points()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_HUC08" class="md-nav__link">
+    filter_HUC08()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_HUC10" class="md-nav__link">
+    filter_HUC10()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.filter_NWI" class="md-nav__link">
+    filter_NWI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_HUC08" class="md-nav__link">
+    find_HUC08()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_HUC10" class="md-nav__link">
+    find_HUC10()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_landsat_by_path_row" class="md-nav__link">
+    find_landsat_by_path_row()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_NAIP" class="md-nav__link">
+    find_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.find_NWI" class="md-nav__link">
+    find_NWI()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.get_all_NAIP" class="md-nav__link">
+    get_all_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.get_annual_NAIP" class="md-nav__link">
+    get_annual_NAIP()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_area" class="md-nav__link">
+    image_area()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_band_names" class="md-nav__link">
+    image_band_names()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_cell_size" class="md-nav__link">
+    image_cell_size()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_date" class="md-nav__link">
+    image_date()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_max_value" class="md-nav__link">
+    image_max_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_mean_value" class="md-nav__link">
+    image_mean_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_min_value" class="md-nav__link">
+    image_min_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_reclassify" class="md-nav__link">
+    image_reclassify()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_scale" class="md-nav__link">
+    image_scale()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_smoothing" class="md-nav__link">
+    image_smoothing()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_std_value" class="md-nav__link">
+    image_std_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.image_sum_value" class="md-nav__link">
+    image_sum_value()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.num_round" class="md-nav__link">
+    num_round()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.nwi_add_color" class="md-nav__link">
+    nwi_add_color()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.remove_geometry" class="md-nav__link">
+    remove_geometry()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.rename_bands" class="md-nav__link">
+    rename_bands()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.str_to_num" class="md-nav__link">
+    str_to_num()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.summarize_by_group" class="md-nav__link">
+    summarize_by_group()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.summary_stats" class="md-nav__link">
+    summary_stats()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area" class="md-nav__link">
+    vec_area()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_ha" class="md-nav__link">
+    vec_area_ha()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_km2" class="md-nav__link">
+    vec_area_km2()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geemap.utils.vec_area_mi2" class="md-nav__link">
+    vec_area_mi2()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/giswqs/geemap/edit/master/docs/utils.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="utilities-module">utilities module</h1>
+<div class="doc doc-object doc-module">
+<h2 class="hidden-toc" href="#geemap.utils" id="geemap.utils" style="visibility: hidden; position: absolute;">
+        </h2>
+<div class="doc doc-contents first">
+<p>Module of various Earth Engine utility functions.</p>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.annual_NAIP">
+
+        <code class="highlight language-python">
+annual_NAIP<span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">region</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Create an NAIP mosaic of a specified year for a specified region. </p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>year</code></td>
+<td><code>int</code></td>
+<td>
+<p>The specified year to create the mosaic for. </p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Geometry</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">annual_NAIP</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">region</span><span class="p">):</span>
+    <span class="sd">"""Create an NAIP mosaic of a specified year for a specified region. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        year (int): The specified year to create the mosaic for. </span>
+<span class="sd">        region (object): ee.Geometry</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Image</span>
+<span class="sd">    """</span>
+
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">'USDA/NAIP/DOQQ'</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+
+    <span class="n">time_start</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s1">'system:time_start'</span><span class="p">))</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">time_end</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s1">'system:time_end'</span><span class="p">))</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">mosaic</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">region</span><span class="p">))</span>
+    <span class="n">NDWI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">])</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'nd'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'ndwi'</span><span class="p">])</span>
+    <span class="n">NDVI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">])</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'nd'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'ndvi'</span><span class="p">])</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">NDWI</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">NDVI</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'system:time_start'</span><span class="p">:</span> <span class="n">time_start</span><span class="p">,</span> <span class="s1">'system:time_end'</span><span class="p">:</span> <span class="n">time_end</span><span class="p">})</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.array_mean">
+
+        <code class="highlight language-python">
+array_mean<span class="p">(</span><span class="n">arr</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculates the mean of an array along the given axis.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arr</code></td>
+<td><code>object</code></td>
+<td>
+<p>Array to calculate mean.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">array_mean</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">"""Calculates the mean of an array along the given axis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (object): Array to calculate mean.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">accum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">length</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">total</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.array_sum">
+
+        <code class="highlight language-python">
+array_sum<span class="p">(</span><span class="n">arr</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Accumulates elements of an array along the given axis.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>arr</code></td>
+<td><code>object</code></td>
+<td>
+<p>Array to accumulate.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">array_sum</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">"""Accumulates elements of an array along the given axis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr (object): Array to accumulate.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">.</span><span class="n">accum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.bands_to_image_collection">
+
+        <code class="highlight language-python">
+bands_to_image_collection<span class="p">(</span><span class="n">img</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Converts all bands in an image to an image collection.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to convert.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">bands_to_image_collection</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="sd">"""Converts all bands in an image to an image collection.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to convert.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.ImageCollection</span>
+<span class="sd">    """</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span>
+        <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">b</span><span class="p">])))</span>
+    <span class="k">return</span> <span class="n">collection</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.column_stats">
+
+        <code class="highlight language-python">
+column_stats<span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">stats_type</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Aggregates over a given property of the objects in a collection, calculating the sum, min, max, mean, 
+sample standard deviation, sample variance, total standard deviation and total variance of the selected property.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collection</code></td>
+<td><code>FeatureCollection</code></td>
+<td>
+<p>The input feature collection to calculate statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the column to calculate statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>stats_type</code></td>
+<td><code>str</code></td>
+<td>
+<p>The type of statistics to calculate.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>The dictionary containing information about the requested statistics.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">column_stats</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">stats_type</span><span class="p">):</span>
+    <span class="sd">"""Aggregates over a given property of the objects in a collection, calculating the sum, min, max, mean, </span>
+<span class="sd">    sample standard deviation, sample variance, total standard deviation and total variance of the selected property.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        collection (FeatureCollection): The input feature collection to calculate statistics.</span>
+<span class="sd">        column (str): The name of the column to calculate statistics.</span>
+<span class="sd">        stats_type (str): The type of statistics to calculate.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: The dictionary containing information about the requested statistics.</span>
+<span class="sd">    """</span>
+    <span class="n">stats_type</span> <span class="o">=</span> <span class="n">stats_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">allowed_stats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span>
+                     <span class="s1">'median'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'stdDev'</span><span class="p">,</span> <span class="s1">'variance'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">stats_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_stats</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'The stats type must be one of the following: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allowed_stats</span><span class="p">)))</span>
+        <span class="k">return</span>
+
+    <span class="n">stats_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">'min'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="s1">'max'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s1">'mean'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">'median'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+        <span class="s1">'sum'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="s1">'stdDev'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">stdDev</span><span class="p">(),</span>
+        <span class="s1">'variance'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">variance</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="n">selectors</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span><span class="p">]</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">reduceColumns</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'selectors'</span><span class="p">:</span> <span class="n">selectors</span><span class="p">,</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">stats_dict</span><span class="p">[</span><span class="n">stats_type</span><span class="p">]</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">stats</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.dict_to_csv">
+
+        <code class="highlight language-python">
+dict_to_csv<span class="p">(</span><span class="n">data_dict</span><span class="p">,</span> <span class="n">out_csv</span><span class="p">,</span> <span class="n">by_row</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Downloads an ee.Dictionary as a CSV file.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data_dict</code></td>
+<td><code>ee.Dictionary</code></td>
+<td>
+<p>The input ee.Dictionary.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>out_csv</code></td>
+<td><code>str</code></td>
+<td>
+<p>The output file path to the CSV file.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>by_row</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to use by row or by column. Defaults to False.</p>
+</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">dict_to_csv</span><span class="p">(</span><span class="n">data_dict</span><span class="p">,</span> <span class="n">out_csv</span><span class="p">,</span> <span class="n">by_row</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""Downloads an ee.Dictionary as a CSV file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data_dict (ee.Dictionary): The input ee.Dictionary.</span>
+<span class="sd">        out_csv (str): The output file path to the CSV file.</span>
+<span class="sd">        by_row (bool, optional): Whether to use by row or by column. Defaults to False.</span>
+<span class="sd">    """</span>
+    <span class="kn">import</span> <span class="nn">geemap</span>
+
+    <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">out_csv</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">by_row</span><span class="p">:</span>
+        <span class="n">csv_feature</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">)</span>
+        <span class="n">csv_feat_col</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">([</span><span class="n">csv_feature</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">({</span><span class="s1">'name'</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">:</span> <span class="n">data_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)}))</span>
+        <span class="n">csv_feature</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+        <span class="n">csv_feat_col</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">csv_feature</span><span class="p">)</span>
+
+    <span class="n">geemap</span><span class="o">.</span><span class="n">ee_export_vector</span><span class="p">(</span><span class="n">csv_feat_col</span><span class="p">,</span> <span class="n">out_csv</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.ee_initialize">
+
+        <code class="highlight language-python">
+ee_initialize<span class="p">(</span><span class="n">token_name</span><span class="o">=</span><span class="s1">'EARTHENGINE_TOKEN'</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Authenticates Earth Engine and initialize an Earth Engine session</p>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">ee_initialize</span><span class="p">(</span><span class="n">token_name</span><span class="o">=</span><span class="s1">'EARTHENGINE_TOKEN'</span><span class="p">):</span>
+    <span class="sd">"""Authenticates Earth Engine and initialize an Earth Engine session</span>
+
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ee_token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">token_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ee_token</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">credential</span> <span class="o">=</span> <span class="s1">'{"refresh_token":"</span><span class="si">%s</span><span class="s1">"}'</span> <span class="o">%</span> <span class="n">ee_token</span>
+            <span class="n">credential_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">"~/.config/earthengine/"</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">credential_file_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">credential_file_path</span> <span class="o">+</span> <span class="s1">'credentials'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">credential</span><span class="p">)</span>
+
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.ee_num_round">
+
+        <code class="highlight language-python">
+ee_num_round<span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Rounds a number to a specified number of decimal places.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>num</code></td>
+<td><code>ee.Number</code></td>
+<td>
+<p>The number to round.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>decimal</code></td>
+<td><code>int</code></td>
+<td>
+<p>The number of decimal places to round. Defaults to 2.</p>
+</td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ee.Number</code></td>
+<td>
+<p>The number with the specified decimal places rounded.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">ee_num_round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">"""Rounds a number to a specified number of decimal places.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        num (ee.Number): The number to round.</span>
+<span class="sd">        decimal (int, optional): The number of decimal places to round. Defaults to 2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ee.Number: The number with the specified decimal places rounded.</span>
+<span class="sd">    """</span>
+    <span class="n">format_str</span> <span class="o">=</span> <span class="s1">'%.</span><span class="si">{}</span><span class="s1">f'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">num</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">format_str</span><span class="p">))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.extract_values_to_points">
+
+        <code class="highlight language-python">
+extract_values_to_points<span class="p">(</span><span class="n">in_points</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Extracts image values to points.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in_points</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>str</code></td>
+<td>
+<p>The column name to keep.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>The image resolution to use. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">extract_values_to_points</span><span class="p">(</span><span class="n">in_points</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Extracts image values to points.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        in_points (object): ee.FeatureCollection</span>
+<span class="sd">        img (object): ee.Image</span>
+<span class="sd">        label (str): The column name to keep.</span>
+<span class="sd">        scale (float, optional): The image resolution to use. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">out_fc</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">sampleRegions</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'collection'</span><span class="p">:</span> <span class="n">in_points</span><span class="p">,</span>
+        <span class="s1">'properties'</span><span class="p">:</span> <span class="p">[</span><span class="n">label</span><span class="p">],</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span>
+    <span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">out_fc</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.filter_HUC08">
+
+        <code class="highlight language-python">
+filter_HUC08<span class="p">(</span><span class="n">region</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Filters HUC08 watersheds intersecting a given region.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Geometry</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">filter_HUC08</span><span class="p">(</span><span class="n">region</span><span class="p">):</span>
+    <span class="sd">"""Filters HUC08 watersheds intersecting a given region.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        region (object): ee.Geometry</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">USGS_HUC08</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">'USGS/WBD/2017/HUC08'</span><span class="p">)</span>   <span class="c1"># Subbasins</span>
+    <span class="n">HUC08</span> <span class="o">=</span> <span class="n">USGS_HUC08</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HUC08</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.filter_HUC10">
+
+        <code class="highlight language-python">
+filter_HUC10<span class="p">(</span><span class="n">region</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Filters HUC10 watersheds intersecting a given region.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Geometry</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">filter_HUC10</span><span class="p">(</span><span class="n">region</span><span class="p">):</span>
+    <span class="sd">"""Filters HUC10 watersheds intersecting a given region.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        region (object): ee.Geometry</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">USGS_HUC10</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">'USGS/WBD/2017/HUC10'</span><span class="p">)</span>   <span class="c1"># Watersheds</span>
+    <span class="n">HUC10</span> <span class="o">=</span> <span class="n">USGS_HUC10</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">HUC10</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.filter_NWI">
+
+        <code class="highlight language-python">
+filter_NWI<span class="p">(</span><span class="n">HUC08_Id</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">exclude_riverine</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrives NWI dataset for a given HUC8 watershed.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HUC08_Id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The HUC8 watershed id.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Geometry</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>exclude_riverine</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to exclude riverine wetlands. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">filter_NWI</span><span class="p">(</span><span class="n">HUC08_Id</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">exclude_riverine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""Retrives NWI dataset for a given HUC8 watershed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        HUC08_Id (str): The HUC8 watershed id.</span>
+<span class="sd">        region (object): ee.Geometry</span>
+<span class="sd">        exclude_riverine (bool, optional): Whether to exclude riverine wetlands. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="n">nwi_asset_prefix</span> <span class="o">=</span> <span class="s1">'users/wqs/NWI-HU8/HU8_'</span>
+    <span class="n">nwi_asset_suffix</span> <span class="o">=</span> <span class="s1">'_Wetlands'</span>
+    <span class="n">nwi_asset_path</span> <span class="o">=</span> <span class="n">nwi_asset_prefix</span> <span class="o">+</span> <span class="n">HUC08_Id</span> <span class="o">+</span> <span class="n">nwi_asset_suffix</span>
+    <span class="n">nwi_huc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">nwi_asset_path</span><span class="p">)</span><span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">exclude_riverine</span><span class="p">:</span>
+        <span class="n">nwi_huc</span> <span class="o">=</span> <span class="n">nwi_huc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">notEquals</span><span class="p">(</span>
+            <span class="o">**</span><span class="p">{</span><span class="s1">'leftField'</span><span class="p">:</span> <span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'rightValue'</span><span class="p">:</span> <span class="s1">'Riverine'</span><span class="p">}))</span>
+    <span class="k">return</span> <span class="n">nwi_huc</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.find_HUC08">
+
+        <code class="highlight language-python">
+find_HUC08<span class="p">(</span><span class="n">HUC08_Id</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Finds a HUC08 watershed based on a given HUC08 ID</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HUC08_Id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The HUC08 ID.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">find_HUC08</span><span class="p">(</span><span class="n">HUC08_Id</span><span class="p">):</span>
+    <span class="sd">"""Finds a HUC08 watershed based on a given HUC08 ID</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        HUC08_Id (str): The HUC08 ID.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">USGS_HUC08</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">'USGS/WBD/2017/HUC08'</span><span class="p">)</span>   <span class="c1"># Subbasins</span>
+    <span class="n">HUC08</span> <span class="o">=</span> <span class="n">USGS_HUC08</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'huc8'</span><span class="p">,</span> <span class="n">HUC08_Id</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">HUC08</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.find_HUC10">
+
+        <code class="highlight language-python">
+find_HUC10<span class="p">(</span><span class="n">HUC10_Id</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Finds a HUC10 watershed based on a given HUC08 ID</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HUC10_Id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The HUC10 ID.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">find_HUC10</span><span class="p">(</span><span class="n">HUC10_Id</span><span class="p">):</span>
+    <span class="sd">"""Finds a HUC10 watershed based on a given HUC08 ID</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        HUC10_Id (str): The HUC10 ID.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">USGS_HUC10</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="s1">'USGS/WBD/2017/HUC10'</span><span class="p">)</span>   <span class="c1"># Watersheds</span>
+    <span class="n">HUC10</span> <span class="o">=</span> <span class="n">USGS_HUC10</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'huc10'</span><span class="p">,</span> <span class="n">HUC10_Id</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">HUC10</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.find_landsat_by_path_row">
+
+        <code class="highlight language-python">
+find_landsat_by_path_row<span class="p">(</span><span class="n">landsat_col</span><span class="p">,</span> <span class="n">path_num</span><span class="p">,</span> <span class="n">row_num</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Finds Landsat images by WRS path number and row number.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>landsat_col</code></td>
+<td><code>str</code></td>
+<td>
+<p>The image collection id of Landsat. </p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>path_num</code></td>
+<td><code>int</code></td>
+<td>
+<p>The WRS path number.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>row_num</code></td>
+<td><code>int</code></td>
+<td>
+<p>the WRS row number.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">find_landsat_by_path_row</span><span class="p">(</span><span class="n">landsat_col</span><span class="p">,</span> <span class="n">path_num</span><span class="p">,</span> <span class="n">row_num</span><span class="p">):</span>
+    <span class="sd">"""Finds Landsat images by WRS path number and row number.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        landsat_col (str): The image collection id of Landsat. </span>
+<span class="sd">        path_num (int): The WRS path number.</span>
+<span class="sd">        row_num (int): the WRS row number.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.ImageCollection</span>
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">landsat_col</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">landsat_col</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="n">landsat_col</span><span class="p">)</span>
+            <span class="n">collection</span> <span class="o">=</span> <span class="n">landsat_col</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WRS_PATH'</span><span class="p">,</span> <span class="n">path_num</span><span class="p">))</span> \
+                <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WRS_ROW'</span><span class="p">,</span> <span class="n">row_num</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">collection</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.find_NAIP">
+
+        <code class="highlight language-python">
+find_NAIP<span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">add_NDVI</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_NDWI</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Create annual NAIP mosaic for a given region.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Geometry</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>add_NDVI</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to add the NDVI band. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>add_NDWI</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to add the NDWI band. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">find_NAIP</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">add_NDVI</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">add_NDWI</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""Create annual NAIP mosaic for a given region.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        region (object): ee.Geometry</span>
+<span class="sd">        add_NDVI (bool, optional): Whether to add the NDVI band. Defaults to True.</span>
+<span class="sd">        add_NDWI (bool, optional): Whether to add the NDWI band. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.ImageCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">init_collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">'USDA/NAIP/DOQQ'</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">filterBounds</span><span class="p">(</span><span class="n">region</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">'2009-01-01'</span><span class="p">,</span> <span class="s1">'2019-12-31'</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">listContains</span><span class="p">(</span><span class="s2">"system:band_names"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">))</span>
+
+    <span class="n">yearList</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">init_collection</span><span class="o">.</span><span class="n">distinct</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">'system:time_start'</span><span class="p">])</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s1">'system:time_start'</span><span class="p">))</span>
+    <span class="n">init_years</span> <span class="o">=</span> <span class="n">yearList</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'year'</span><span class="p">))</span>
+
+    <span class="c1"># remove duplicates</span>
+    <span class="n">init_years</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">init_years</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">frequencyHistogram</span><span class="p">()))</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="n">init_years</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="c1"># years = init_years.map(lambda x: x)</span>
+
+    <span class="c1"># Available NAIP years with NIR band</span>
+    <span class="k">def</span> <span class="nf">NAIPAnnual</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="n">init_collection</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+        <span class="c1"># .filterBounds(geometry)</span>
+        <span class="c1"># .filter(ee.Filter.listContains("system:band_names", "N"))</span>
+        <span class="n">time_start</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s1">'system:time_start'</span><span class="p">))</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'YYYY-MM-dd'</span><span class="p">)</span>
+        <span class="n">time_end</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span>
+            <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">aggregate_array</span><span class="p">(</span><span class="s1">'system:time_end'</span><span class="p">))</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">'YYYY-MM-dd'</span><span class="p">)</span>
+        <span class="n">col_size</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">mosaic</span><span class="p">()</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">region</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">add_NDVI</span><span class="p">:</span>
+            <span class="n">NDVI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">(</span>
+                <span class="p">[</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">])</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'nd'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'ndvi'</span><span class="p">])</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">NDVI</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">add_NDWI</span><span class="p">:</span>
+            <span class="n">NDWI</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">normalizedDifference</span><span class="p">(</span>
+                <span class="p">[</span><span class="s1">'G'</span><span class="p">,</span> <span class="s1">'N'</span><span class="p">])</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">'nd'</span><span class="p">],</span> <span class="p">[</span><span class="s1">'ndwi'</span><span class="p">])</span>
+            <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">NDWI</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">image</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'system:time_start'</span><span class="p">:</span> <span class="n">time_start</span><span class="p">,</span> <span class="s1">'system:time_end'</span><span class="p">:</span> <span class="n">time_end</span><span class="p">,</span> <span class="s1">'tiles'</span><span class="p">:</span> <span class="n">col_size</span><span class="p">})</span>
+
+    <span class="c1"># remove years with incomplete coverage</span>
+    <span class="n">naip</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="n">years</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">NAIPAnnual</span><span class="p">))</span>
+    <span class="n">mean_size</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">naip</span><span class="o">.</span><span class="n">aggregate_mean</span><span class="p">(</span><span class="s1">'tiles'</span><span class="p">))</span>
+    <span class="n">total_sd</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">naip</span><span class="o">.</span><span class="n">aggregate_total_sd</span><span class="p">(</span><span class="s1">'tiles'</span><span class="p">))</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">mean_size</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">total_sd</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">naip</span> <span class="o">=</span> <span class="n">naip</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">Or</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span>
+        <span class="s1">'tiles'</span><span class="p">,</span> <span class="n">threshold</span><span class="p">),</span> <span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span><span class="s1">'tiles'</span><span class="p">,</span> <span class="mi">15</span><span class="p">)))</span>
+    <span class="n">naip</span> <span class="o">=</span> <span class="n">naip</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">gte</span><span class="p">(</span><span class="s1">'tiles'</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="n">naip_count</span> <span class="o">=</span> <span class="n">naip</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="n">naip_seq</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">naip_count</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">set_index</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">naip</span><span class="o">.</span><span class="n">toList</span><span class="p">(</span><span class="n">naip_count</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'system:uid'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">toUint8</span><span class="p">()})</span>
+
+    <span class="n">naip</span> <span class="o">=</span> <span class="n">naip_seq</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">set_index</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="n">naip</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.find_NWI">
+
+        <code class="highlight language-python">
+find_NWI<span class="p">(</span><span class="n">HUC08_Id</span><span class="p">,</span> <span class="n">exclude_riverine</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Finds NWI dataset for a given HUC08 watershed.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HUC08_Id</code></td>
+<td><code>str</code></td>
+<td>
+<p>The HUC08 watershed ID.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>exclude_riverine</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to exclude riverine wetlands. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">find_NWI</span><span class="p">(</span><span class="n">HUC08_Id</span><span class="p">,</span> <span class="n">exclude_riverine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""Finds NWI dataset for a given HUC08 watershed.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        HUC08_Id (str): The HUC08 watershed ID.</span>
+<span class="sd">        exclude_riverine (bool, optional): Whether to exclude riverine wetlands. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+
+    <span class="n">nwi_asset_prefix</span> <span class="o">=</span> <span class="s1">'users/wqs/NWI-HU8/HU8_'</span>
+    <span class="n">nwi_asset_suffix</span> <span class="o">=</span> <span class="s1">'_Wetlands'</span>
+    <span class="n">nwi_asset_path</span> <span class="o">=</span> <span class="n">nwi_asset_prefix</span> <span class="o">+</span> <span class="n">HUC08_Id</span> <span class="o">+</span> <span class="n">nwi_asset_suffix</span>
+    <span class="n">nwi_huc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">nwi_asset_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">exclude_riverine</span><span class="p">:</span>
+        <span class="n">nwi_huc</span> <span class="o">=</span> <span class="n">nwi_huc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">notEquals</span><span class="p">(</span>
+            <span class="o">**</span><span class="p">{</span><span class="s1">'leftField'</span><span class="p">:</span> <span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'rightValue'</span><span class="p">:</span> <span class="s1">'Riverine'</span><span class="p">}))</span>
+    <span class="k">return</span> <span class="n">nwi_huc</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.get_all_NAIP">
+
+        <code class="highlight language-python">
+get_all_NAIP<span class="p">(</span><span class="n">start_year</span><span class="o">=</span><span class="mi">2009</span><span class="p">,</span> <span class="n">end_year</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Creates annual NAIP imagery mosaic.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start_year</code></td>
+<td><code>int</code></td>
+<td>
+<p>The starting year. Defaults to 2009.</p>
+</td>
+<td><code>2009</code></td>
+</tr>
+<tr>
+<td><code>end_year</code></td>
+<td><code>int</code></td>
+<td>
+<p>The ending year. Defaults to 2019.</p>
+</td>
+<td><code>2019</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_all_NAIP</span><span class="p">(</span><span class="n">start_year</span><span class="o">=</span><span class="mi">2009</span><span class="p">,</span> <span class="n">end_year</span><span class="o">=</span><span class="mi">2019</span><span class="p">):</span>
+    <span class="sd">"""Creates annual NAIP imagery mosaic.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        start_year (int, optional): The starting year. Defaults to 2009.</span>
+<span class="sd">        end_year (int, optional): The ending year. Defaults to 2019.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.ImageCollection</span>
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">get_annual_NAIP</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">'USDA/NAIP/DOQQ'</span><span class="p">)</span>
+                <span class="n">start_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">end_date</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="o">.</span><span class="n">fromYMD</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+                <span class="n">naip</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span> \
+                    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">listContains</span><span class="p">(</span><span class="s2">"system:band_names"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="n">naip</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+        <span class="n">years</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="n">start_year</span><span class="p">,</span> <span class="n">end_year</span><span class="p">)</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="n">years</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">get_annual_NAIP</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">collection</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.get_annual_NAIP">
+
+        <code class="highlight language-python">
+get_annual_NAIP<span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">RGBN</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Filters NAIP ImageCollection by year.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>year</code></td>
+<td><code>int</code></td>
+<td>
+<p>The year to filter the NAIP ImageCollection.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>RGBN</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to retrieve 4-band NAIP imagery only. Defaults to True.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.ImageCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_annual_NAIP</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">RGBN</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""Filters NAIP ImageCollection by year.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        year (int): The year to filter the NAIP ImageCollection.</span>
+<span class="sd">        RGBN (bool, optional): Whether to retrieve 4-band NAIP imagery only. Defaults to True.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.ImageCollection</span>
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">'USDA/NAIP/DOQQ'</span><span class="p">)</span>
+        <span class="n">start_date</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'-01-01'</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'-12-31'</span>
+        <span class="n">naip</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">RGBN</span><span class="p">:</span>
+            <span class="n">naip</span> <span class="o">=</span> <span class="n">naip</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">listContains</span><span class="p">(</span>
+                <span class="s2">"system:band_names"</span><span class="p">,</span> <span class="s2">"N"</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">naip</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_area">
+
+        <code class="highlight language-python">
+image_area<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">denominator</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculates the the area of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>denominator</code></td>
+<td><code>float</code></td>
+<td>
+<p>The denominator to use for converting size from square meters to other units. Defaults to 1.0.</p>
+</td>
+<td><code>1.0</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Dictionary</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_area</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">denominator</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="sd">"""Calculates the the area of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): ee.Image</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+<span class="sd">        denominator (float, optional): The denominator to use for converting size from square meters to other units. Defaults to 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Dictionary</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">pixel_area</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">unmask</span><span class="p">()</span><span class="o">.</span><span class="n">neq</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span>
+        <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">pixelArea</span><span class="p">())</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">denominator</span><span class="p">)</span>
+    <span class="n">img_area</span> <span class="o">=</span> <span class="n">pixel_area</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">img_area</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_band_names">
+
+        <code class="highlight language-python">
+image_band_names<span class="p">(</span><span class="n">img</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Gets image band names.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>ee.Image</code></td>
+<td>
+<p>The input image.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ee.List</code></td>
+<td>
+<p>The returned list of image band names.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_band_names</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="sd">"""Gets image band names.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (ee.Image): The input image.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ee.List: The returned list of image band names.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_cell_size">
+
+        <code class="highlight language-python">
+image_cell_size<span class="p">(</span><span class="n">img</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the image cell size (e.g., spatial resolution)</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>
+<p>The nominal scale in meters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_cell_size</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the image cell size (e.g., spatial resolution)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): ee.Image</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The nominal scale in meters.</span>
+<span class="sd">    """</span>
+    <span class="n">bands</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
+    <span class="n">scales</span> <span class="o">=</span> <span class="n">bands</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">b</span><span class="p">])</span><span class="o">.</span><span class="n">projection</span><span class="p">()</span><span class="o">.</span><span class="n">nominalScale</span><span class="p">())</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Algorithms</span><span class="o">.</span><span class="n">If</span><span class="p">(</span><span class="n">scales</span><span class="o">.</span><span class="n">distinct</span><span class="p">()</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">bands</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span> <span class="n">scales</span><span class="p">),</span> <span class="n">scales</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">scale</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_date">
+
+        <code class="highlight language-python">
+image_date<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">'YYYY-MM-dd'</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the image acquisition date.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>date_format</code></td>
+<td><code>str</code></td>
+<td>
+<p>The date format to use. Defaults to 'YYYY-MM-dd'.</p>
+</td>
+<td><code>'YYYY-MM-dd'</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>str</code></td>
+<td>
+<p>A string representing the acquisition of the image.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_date</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">date_format</span><span class="o">=</span><span class="s1">'YYYY-MM-dd'</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the image acquisition date.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): ee.Image</span>
+<span class="sd">        date_format (str, optional): The date format to use. Defaults to 'YYYY-MM-dd'.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A string representing the acquisition of the image.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'system:time_start'</span><span class="p">))</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">date_format</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_max_value">
+
+        <code class="highlight language-python">
+image_max_value<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the maximum value of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to calculate the maximum value.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_max_value</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the maximum value of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to calculate the maximum value.</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">max_value</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">max_value</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_mean_value">
+
+        <code class="highlight language-python">
+image_mean_value<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the mean value of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to calculate the mean value.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_mean_value</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the mean value of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to calculate the mean value.</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">mean_value</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">mean_value</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_min_value">
+
+        <code class="highlight language-python">
+image_min_value<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the minimum value of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to calculate the minimum value.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_min_value</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the minimum value of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to calculate the minimum value.</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">min_value</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">min_value</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_reclassify">
+
+        <code class="highlight language-python">
+image_reclassify<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">in_list</span><span class="p">,</span> <span class="n">out_list</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Reclassify an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to which the remapping is applied.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>in_list</code></td>
+<td><code>list</code></td>
+<td>
+<p>The source values (numbers or EEArrays). All values in this list will be mapped to the corresponding value in 'out_list'.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>out_list</code></td>
+<td><code>list</code></td>
+<td>
+<p>The destination values (numbers or EEArrays). These are used to replace the corresponding values in 'from'. Must have the same number of values as 'in_list'.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_reclassify</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">in_list</span><span class="p">,</span> <span class="n">out_list</span><span class="p">):</span>
+    <span class="sd">"""Reclassify an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to which the remapping is applied.</span>
+<span class="sd">        in_list (list): The source values (numbers or EEArrays). All values in this list will be mapped to the corresponding value in 'out_list'.</span>
+<span class="sd">        out_list (list): The destination values (numbers or EEArrays). These are used to replace the corresponding values in 'from'. Must have the same number of values as 'in_list'.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Image</span>
+<span class="sd">    """</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">remap</span><span class="p">(</span><span class="n">in_list</span><span class="p">,</span> <span class="n">out_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">image</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_scale">
+
+        <code class="highlight language-python">
+image_scale<span class="p">(</span><span class="n">img</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the image cell size (e.g., spatial resolution)</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>
+<p>The nominal scale in meters.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the image cell size (e.g., spatial resolution)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): ee.Image</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The nominal scale in meters.</span>
+<span class="sd">    """</span>
+    <span class="c1"># bands = img.bandNames()</span>
+    <span class="c1"># scales = bands.map(lambda b: img.select([b]).projection().nominalScale())</span>
+    <span class="c1"># scale = ee.Algorithms.If(scales.distinct().size().gt(1), ee.Dictionary.fromLists(bands.getInfo(), scales), scales.get(0))</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">projection</span><span class="p">()</span><span class="o">.</span><span class="n">nominalScale</span><span class="p">()</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_smoothing">
+
+        <code class="highlight language-python">
+image_smoothing<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">reducer</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Smooths an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to be smoothed.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>reducer</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Reducer</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>kernel</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.Kernel</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_smoothing</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">reducer</span><span class="p">,</span> <span class="n">kernel</span><span class="p">):</span>
+    <span class="sd">"""Smooths an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to be smoothed.</span>
+<span class="sd">        reducer (object): ee.Reducer</span>
+<span class="sd">        kernel (object): ee.Kernel</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Image</span>
+<span class="sd">    """</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceNeighborhood</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">reducer</span><span class="p">,</span>
+        <span class="s1">'kernel'</span><span class="p">:</span> <span class="n">kernel</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">image</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_std_value">
+
+        <code class="highlight language-python">
+image_std_value<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the standard deviation of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to calculate the standard deviation.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_std_value</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the standard deviation of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to calculate the standard deviation.</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">std_value</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">stdDev</span><span class="p">(),</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">std_value</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.image_sum_value">
+
+        <code class="highlight language-python">
+image_sum_value<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Retrieves the sum of an image.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to calculate the standard deviation.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>object</code></td>
+<td>
+<p>The region over which to reduce data. Defaults to the footprint of the image's first band.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>scale</code></td>
+<td><code>float</code></td>
+<td>
+<p>A nominal scale in meters of the projection to work in. Defaults to None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">image_sum_value</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""Retrieves the sum of an image.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to calculate the standard deviation.</span>
+<span class="sd">        region (object, optional): The region over which to reduce data. Defaults to the footprint of the image's first band.</span>
+<span class="sd">        scale (float, optional): A nominal scale in meters of the projection to work in. Defaults to None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">region</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">image_scale</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">sum_value</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">reduceRegion</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="s1">'geometry'</span><span class="p">:</span> <span class="n">region</span><span class="p">,</span>
+        <span class="s1">'scale'</span><span class="p">:</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="s1">'maxPixels'</span><span class="p">:</span> <span class="mf">1e12</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">sum_value</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.num_round">
+
+        <code class="highlight language-python">
+num_round<span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Rounds a number to a specified number of decimal places.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>num</code></td>
+<td><code>float</code></td>
+<td>
+<p>The number to round.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>decimal</code></td>
+<td><code>int</code></td>
+<td>
+<p>The number of decimal places to round. Defaults to 2.</p>
+</td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>
+<p>The number with the specified decimal places rounded.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">num_round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="sd">"""Rounds a number to a specified number of decimal places.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        num (float): The number to round.</span>
+<span class="sd">        decimal (int, optional): The number of decimal places to round. Defaults to 2.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: The number with the specified decimal places rounded.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">decimal</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.nwi_add_color">
+
+        <code class="highlight language-python">
+nwi_add_color<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Converts NWI vector dataset to image and add color to it.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Image</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">nwi_add_color</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Converts NWI vector dataset to image and add color to it.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): ee.FeatureCollection</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Image</span>
+<span class="sd">    """</span>
+    <span class="n">emergent</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span>
+        <span class="n">fc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'Freshwater Emergent Wetland'</span><span class="p">)))</span>
+    <span class="n">emergent</span> <span class="o">=</span> <span class="n">emergent</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+        <span class="s1">'R'</span><span class="p">,</span> <span class="mi">127</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="mi">195</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'B'</span><span class="p">,</span> <span class="mi">28</span><span class="p">))</span>
+    <span class="c1"># print(emergent.first())</span>
+
+    <span class="n">forested</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span>
+        <span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'Freshwater Forested/Shrub Wetland'</span><span class="p">))</span>
+    <span class="n">forested</span> <span class="o">=</span> <span class="n">forested</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="mi">136</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'B'</span><span class="p">,</span> <span class="mi">55</span><span class="p">))</span>
+
+    <span class="n">pond</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'Freshwater Pond'</span><span class="p">))</span>
+    <span class="n">pond</span> <span class="o">=</span> <span class="n">pond</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mi">104</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'B'</span><span class="p">,</span> <span class="mi">192</span><span class="p">))</span>
+
+    <span class="n">lake</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'Lake'</span><span class="p">))</span>
+    <span class="n">lake</span> <span class="o">=</span> <span class="n">lake</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'R'</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'B'</span><span class="p">,</span> <span class="mi">124</span><span class="p">))</span>
+
+    <span class="n">riverine</span> <span class="o">=</span> <span class="n">fc</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">'WETLAND_TY'</span><span class="p">,</span> <span class="s1">'Riverine'</span><span class="p">))</span>
+    <span class="n">riverine</span> <span class="o">=</span> <span class="n">riverine</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+        <span class="s1">'R'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'G'</span><span class="p">,</span> <span class="mi">144</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">'B'</span><span class="p">,</span> <span class="mi">191</span><span class="p">))</span>
+
+    <span class="n">fc</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">emergent</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">forested</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pond</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">lake</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">riverine</span><span class="p">))</span>
+
+<span class="c1">#   base = ee.Image(0).mask(0).toInt8()</span>
+    <span class="n">base</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">()</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">paint</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="s1">'R'</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">paint</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="s1">'G'</span><span class="p">)</span>
+                  <span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">base</span><span class="o">.</span><span class="n">paint</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">img</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.remove_geometry">
+
+        <code class="highlight language-python">
+remove_geometry<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Remove .geo coordinate field from a FeatureCollection</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>The input FeatureCollection.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>The output FeatureCollection without the geometry field.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">remove_geometry</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Remove .geo coordinate field from a FeatureCollection</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): The input FeatureCollection.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: The output FeatureCollection without the geometry field.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">".*"</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.rename_bands">
+
+        <code class="highlight language-python">
+rename_bands<span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">in_band_names</span><span class="p">,</span> <span class="n">out_band_names</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Renames image bands.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>img</code></td>
+<td><code>object</code></td>
+<td>
+<p>The image to be renamed.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>in_band_names</code></td>
+<td><code>list</code></td>
+<td>
+<p>The list of of input band names.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>out_band_names</code></td>
+<td><code>list</code></td>
+<td>
+<p>The list of output band names.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>The output image with the renamed bands.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">rename_bands</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">in_band_names</span><span class="p">,</span> <span class="n">out_band_names</span><span class="p">):</span>
+    <span class="sd">"""Renames image bands.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (object): The image to be renamed.</span>
+<span class="sd">        in_band_names (list): The list of of input band names.</span>
+<span class="sd">        out_band_names (list): The list of output band names.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: The output image with the renamed bands.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">in_band_names</span><span class="p">,</span> <span class="n">out_band_names</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.str_to_num">
+
+        <code class="highlight language-python">
+str_to_num<span class="p">(</span><span class="n">in_str</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Converts a string to an ee.Number.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in_str</code></td>
+<td><code>str</code></td>
+<td>
+<p>The string to convert to a number.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Number</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">str_to_num</span><span class="p">(</span><span class="n">in_str</span><span class="p">):</span>
+    <span class="sd">"""Converts a string to an ee.Number.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        in_str (str): The string to convert to a number.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Number</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">ee</span><span class="o">.</span><span class="n">Number</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.summarize_by_group">
+
+        <code class="highlight language-python">
+summarize_by_group<span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">group_name</span><span class="p">,</span> <span class="n">stats_type</span><span class="p">,</span> <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculates summary statistics by group.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collection</code></td>
+<td><code>object</code></td>
+<td>
+<p>The input feature collection</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td><code>str</code></td>
+<td>
+<p>The value column to calculate summary statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the group column.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>group_name</code></td>
+<td><code>str</code></td>
+<td>
+<p>The new group name to use.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>stats_type</code></td>
+<td><code>str</code></td>
+<td>
+<p>The type of summary statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>return_dict</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Whether to return the result as a dictionary.</p>
+</td>
+<td><code>True</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.Dictionary or ee.List</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">summarize_by_group</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">group_name</span><span class="p">,</span> <span class="n">stats_type</span><span class="p">,</span> <span class="n">return_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">"""Calculates summary statistics by group.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        collection (object): The input feature collection</span>
+<span class="sd">        column (str): The value column to calculate summary statistics.</span>
+<span class="sd">        group (str): The name of the group column.</span>
+<span class="sd">        group_name (str): The new group name to use.</span>
+<span class="sd">        stats_type (str): The type of summary statistics.</span>
+<span class="sd">        return_dict (bool): Whether to return the result as a dictionary.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.Dictionary or ee.List</span>
+<span class="sd">    """</span>
+    <span class="n">stats_type</span> <span class="o">=</span> <span class="n">stats_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">allowed_stats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">,</span>
+                     <span class="s1">'median'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'stdDev'</span><span class="p">,</span> <span class="s1">'variance'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">stats_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">allowed_stats</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'The stats type must be one of the following: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allowed_stats</span><span class="p">)))</span>
+        <span class="k">return</span>
+
+    <span class="n">stats_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">'min'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="s1">'max'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+        <span class="s1">'mean'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">'median'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span>
+        <span class="s1">'sum'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+        <span class="s1">'stdDev'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">stdDev</span><span class="p">(),</span>
+        <span class="s1">'variance'</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Reducer</span><span class="o">.</span><span class="n">variance</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="n">selectors</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span><span class="p">,</span> <span class="n">group</span><span class="p">]</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">reduceColumns</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+        <span class="s1">'selectors'</span><span class="p">:</span> <span class="n">selectors</span><span class="p">,</span>
+        <span class="s1">'reducer'</span><span class="p">:</span> <span class="n">stats_dict</span><span class="p">[</span><span class="n">stats_type</span><span class="p">]</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
+            <span class="s1">'groupField'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">'groupName'</span><span class="p">:</span> <span class="n">group_name</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'groups'</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">return_dict</span><span class="p">:</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">group_name</span><span class="p">))</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">stats_type</span><span class="p">))</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Dictionary</span><span class="o">.</span><span class="n">fromLists</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.summary_stats">
+
+        <code class="highlight language-python">
+summary_stats<span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Aggregates over a given property of the objects in a collection, calculating the sum, min, max, mean, 
+sample standard deviation, sample variance, total standard deviation and total variance of the selected property.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collection</code></td>
+<td><code>FeatureCollection</code></td>
+<td>
+<p>The input feature collection to calculate summary statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td><code>str</code></td>
+<td>
+<p>The name of the column to calculate summary statistics.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict</code></td>
+<td>
+<p>The dictionary containing information about the summary statistics.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">summary_stats</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+    <span class="sd">"""Aggregates over a given property of the objects in a collection, calculating the sum, min, max, mean, </span>
+<span class="sd">    sample standard deviation, sample variance, total standard deviation and total variance of the selected property.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        collection (FeatureCollection): The input feature collection to calculate summary statistics.</span>
+<span class="sd">        column (str): The name of the column to calculate summary statistics.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: The dictionary containing information about the summary statistics.</span>
+<span class="sd">    """</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">aggregate_stats</span><span class="p">(</span><span class="n">column</span><span class="p">)</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">stats</span><span class="p">))</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'values'</span><span class="p">)</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.vec_area">
+
+        <code class="highlight language-python">
+vec_area<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculate the area (m2) of each each feature in a feature collection.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>The feature collection to compute the area.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">vec_area</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Calculate the area (m2) of each each feature in a feature collection.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): The feature collection to compute the area.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'area_m2'</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()}))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.vec_area_ha">
+
+        <code class="highlight language-python">
+vec_area_ha<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculate the area (hectare) of each each feature in a feature collection.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>The feature collection to compute the area.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">vec_area_ha</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Calculate the area (hectare) of each each feature in a feature collection.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): The feature collection to compute the area.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'area_ha'</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()}))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.vec_area_km2">
+
+        <code class="highlight language-python">
+vec_area_km2<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculate the area (km2) of each each feature in a feature collection.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>The feature collection to compute the area.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">vec_area_km2</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Calculate the area (km2) of each each feature in a feature collection.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): The feature collection to compute the area.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'area_km2'</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()}))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="geemap.utils.vec_area_mi2">
+
+        <code class="highlight language-python">
+vec_area_mi2<span class="p">(</span><span class="n">fc</span><span class="p">)</span>        </code>
+
+
+      </h2>
+<div class="doc doc-contents ">
+<p>Calculate the area (square mile) of each each feature in a feature collection.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fc</code></td>
+<td><code>object</code></td>
+<td>
+<p>The feature collection to compute the area.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>object</code></td>
+<td>
+<p>ee.FeatureCollection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+          <summary>Source code in <code>geemap/utils.py</code></summary>
+          <div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">vec_area_mi2</span><span class="p">(</span><span class="n">fc</span><span class="p">):</span>
+    <span class="sd">"""Calculate the area (square mile) of each each feature in a feature collection.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fc (object): The feature collection to compute the area.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        object: ee.FeatureCollection</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">fc</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">set</span><span class="p">({</span><span class="s1">'area_mi2'</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="mf">2.59e6</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()}))</span>
+</code></pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: 2020-10-27
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../ml/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                ml module
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
